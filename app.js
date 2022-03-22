@@ -1,4 +1,5 @@
 
+const validator=require('validator')
 
 const fname =require('./util.js')
 const add= require('./util.js')
@@ -9,10 +10,12 @@ fs.copyFileSync
 
 // fs.appendFileSync('notes.txt'," ++  I am done with the task")
 
-console.log("sarthak")
+/*console.log("sarthak")
 console.log(fname)
 console.log(sum)
 
 const msg=require('./notes.js')
 const mess=msg()
 console.log(mess)
+*/
+console.log(validator.isEmail('sarthak.chauhan@gmail.com'))
