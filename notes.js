@@ -1,4 +1,5 @@
 const fs=require('fs')
+
 const chalk=require('chalk')
 
 const getNotes = ()=>
@@ -9,6 +10,7 @@ const getNotes = ()=>
 const addNote=(title,body)=>              // add data to file
 {
     const notes=loadNotes()    //load existing file
+
     /*
     const ages = [32, 33, 16, 40];
     const result = ages.filter(checkAdult);
@@ -20,6 +22,7 @@ const addNote=(title,body)=>              // add data to file
     //const duplicates=notes.filter((note)=>note.title === title )
 
     const duplicate=notes.find((note)=>note.title === title )
+  
     if(!duplicate)
     {
     notes.push(                 //add data to file
@@ -71,7 +74,7 @@ const listNotes=()=>                 //list the data
     });
 }
 
-const readNote=(title)=>
+const readNote=(title)=>           //read the file
 {
    const notes=loadNotes()
    const notefind=notes.find((note)=>note.title===title)
