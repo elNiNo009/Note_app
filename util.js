@@ -1,5 +1,5 @@
 
-console.log("utility file")
+//console.log("utility file")
 const name='mike'
 const add=function(a,b)
 {
