@@ -21,7 +21,7 @@ yargs.version('1.1.0')
 console.log(chalk.red.bold("sarthak"))
 
 //console.log(process.argv)
-yargs.command({
+yargs.command({                             //add
     command:'add',
     describe:'add the notes',
     builder:{
@@ -50,12 +50,20 @@ yargs.command({
         console.log('lsiting notes')
     }
 })
-yargs.command({
-    command:'read',
-    describe:'read the notes',
-    handler: function()
+yargs.command({                              //remove
+    command:'remove',
+    describe:'remove a note',
+    builder:{
+        title:{
+            describe:'Note title',
+            demandOption:true,
+            type:'string'
+        }
+    },
+    handler: function(argv)
     {
-        console.log('reading notes')
+        console.log("inside remove")
+        notes.removeNote(argv.title)
     }
 })
 yargs.parse()

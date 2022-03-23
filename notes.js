@@ -9,6 +9,14 @@ const getNotes =function()
 const addNote=function(title,body) // add data to file
 {
     const notes=loadNotes()    //load existing file
+    /*
+    const ages = [32, 33, 16, 40];
+    const result = ages.filter(checkAdult);
+     function checkAdult(age)
+       {
+          return age >= 18;
+       }
+    */
     const duplicates=notes.filter(function(note)
     {
         return note.title === title
@@ -33,12 +41,34 @@ const addNote=function(title,body) // add data to file
 
    
 }
+
+const removeNote=function(title)
+{
+  //  console.log("inside removenote")
+    const notes=loadNotes()
+    const notesfiltered=notes.filter(function(note)
+    {
+        return note.title!==title
+    })
+   //console.group(notes)
+   if(notesfiltered.length !== notes.length)
+   {
+    console.log(chalk.green("note removed"))
+    saveNotes(notesfiltered)
+   }
+   else
+   {
+       console.log(chalk.red("title not avalaible"))
+   }
+    console.log(chalk.yellow(title))
+
+}
+
 const saveNotes=function(notes) //write final updated data to json file
 {
     const finalData=JSON.stringify(notes)
     fs.writeFileSync('notes.json',finalData)
 }
-
 
 const loadNotes=function()  //read fron json file
 {
@@ -62,6 +92,7 @@ const loadNotes=function()  //read fron json file
 
 module.exports={
     addNote: addNote, 
-    getNotes: getNotes
+    getNotes: getNotes,
+    removeNote:removeNote
 
 }
