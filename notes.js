@@ -42,24 +42,26 @@ const addNote=function(title,body) // add data to file
    
 }
 
-const removeNote=function(title)
+const removeNote=function(title)   //remove data from file
 {
-  //  console.log("inside removenote")
     const notes=loadNotes()
+
     const notesfiltered=notes.filter(function(note)
     {
         return note.title!==title
     })
-   //console.group(notes)
+
    if(notesfiltered.length !== notes.length)
    {
-    console.log(chalk.green("note removed"))
+    console.log(chalk.green.inverse("note removed"))
     saveNotes(notesfiltered)
    }
+
    else
    {
-       console.log(chalk.red("title not avalaible"))
+       console.log(chalk.red.inverse("title not avalaible"))
    }
+
     console.log(chalk.yellow(title))
 
 }
