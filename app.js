@@ -4,9 +4,13 @@ const chalk=require('chalk')
 const yargs=require('yargs')
 
 const fname =require('./util.js')
-const add= require('./util.js')
+const notes= require('./notes.js')
+
 
 const fs=require('fs')
+
+yargs.version('1.1.0')
+
 //const sum=add(4,-2)
 //fs.copyFileSync
 
@@ -35,8 +39,7 @@ yargs.command({
     },
     handler: function(argv)
     {
-        console.log('Title :' + argv.title)
-        console.log('Body: '+ argv.body)
+        notes.addNote(argv.title,argv.body)
     }
 })
 yargs.command({
@@ -56,6 +59,7 @@ yargs.command({
     }
 })
 yargs.parse()
+
  // console.log(yargs.argv)
 
 /*console.log(fname)
